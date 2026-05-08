@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>não fica brava não 🌻</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #fffbf0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    padding: 32px 16px;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #f5d76e33 1px, transparent 1px);
+    background-size: 28px 28px;
+    z-index: 0;
+  }
+
+  .scene {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeUp .8s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* GIRASSOL GRANDE */
+  .flower-wrap {
+    display: inline-block;
+    margin-bottom: 8px;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+
+  .stem {
+    width: 8px;
+    height: 80px;
+    background: linear-gradient(180deg, #5a9e2f, #3d7a1e);
+    border-radius: 4px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* folha */
+  .stem::after {
+    content: '';
+    position: absolute;
+    right: -18px;
+    top: 30px;
+    width: 30px;
+    height: 18px;
+    background: #5a9e2f;
+    border-radius: 50% 0 50% 0;
+    transform: rotate(-20deg);
+  }
+
+  .head {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* pétalas camada de trás */
+  .petals-back, .petals-front {
+    position: absolute;
+    inset: 0;
+  }
+
+  .petals-back { animation: spin-slow 18s linear infinite; }
+  .petals-front { animation: spin-slow 18s linear infinite reverse; }
+
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+
+  .petal {
+    position: absolute;
+    width: 30px;
+    height: 56px;
+    background: #f5d76e;
+    border-radius: 50% 50% 40% 40%;
+    left: 50%;
+    top: 0;
+    transform-origin: bottom center;
+    margin-left: -15px;
+  }
+
+  .petals-front .petal { background: #f0c518; width: 26px; height: 50px; margin-left: -13px; }
+
+  .core {
+    position: absolute;
+    inset: 28px;
+    background: radial-gradient(circle at 40% 38%, #8b4e14, #5a2e08);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px #0003;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .core::after {
+    content: '🌻';
+    font-size: 2rem;
+    filter: saturate(0) brightness(.4);
+    opacity: .35;
+  }
+
+  /* TEXTO */
+  .message {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    font-weight: 700;
+    color: #c47c00;
+    line-height: 1.2;
+    margin-top: 24px;
+    text-shadow: 2px 3px 0 #f5d76e66;
+    animation: fadeUp .9s .2s ease both;
+  }
+
+  .sub {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: #d4a030;
+    margin-top: 10px;
+    animation: fadeUp .9s .4s ease both;
+  }
+
+  .hearts {
+    margin-top: 28px;
+    font-size: 1.8rem;
+    letter-spacing: 6px;
+    animation: fadeUp .9s .6s ease both;
+  }
+
+  .heart {
+    display: inline-block;
+    animation: heartbeat 1.4s ease-in-out infinite;
+  }
+  .heart:nth-child(2) { animation-delay: .2s; }
+  .heart:nth-child(3) { animation-delay: .4s; }
+
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    30%      { transform: scale(1.25); }
+    60%      { transform: scale(1); }
+    80%      { transform: scale(1.1); }
+  }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="flower-wrap">
+
+    <!-- cabeça da flor -->
+    <div class="head">
+
+      <!-- pétalas de trás (mais claras) -->
+      <div class="petals-back">
+        <div class="petal" style="transform: rotate(0deg)   translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(45deg)  translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(90deg)  translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(135deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(180deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(225deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(270deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(315deg) translateY(-4px)"></div>
+      </div>
+
+      <!-- pétalas da frente (mais escuras, defasadas) -->
+      <div class="petals-front">
+        <div class="petal" style="transform: rotate(22.5deg)  translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(67.5deg)  translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(112.5deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(157.5deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(202.5deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(247.5deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(292.5deg) translateY(-4px)"></div>
+        <div class="petal" style="transform: rotate(337.5deg) translateY(-4px)"></div>
+      </div>
+
+      <div class="core"></div>
+    </div>
+
+    <!-- caule -->
+    <div class="stem"></div>
+  </div>
+
+  <p class="message">não fica brava não lulu 🥺</p>
+  <p class="sub">tô pedindo desculpas de verdade ✨</p>
+
+  <div class="hearts">
+    <span class="heart">🤍</span>
+    <span class="heart">💛</span>
+    <span class="heart">🤍</span>
+  </div>
+</div>
+
+</body>
+</html>
