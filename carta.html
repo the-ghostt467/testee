@@ -168,52 +168,68 @@
     60%      { transform: scale(1); }
     80%      { transform: scale(1.1); }
   }
-.heart-container {
-    animation: beat 1.2s infinite ease-in-out;
-    margin: 20px auto; 
-    display: flex;
-    justify-content: center;
-}
 
-.heart {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background-color: #ff1443;
-    transform: rotate(-45deg);
-    box-shadow: 0 0 40px #ff1443, 0 0 80px #ff1443;
-}
+/* ======================================================= */
+        /* NOVO CSS: CORAÇÃO PEQUENO E ESTÁTICO NO CANTO           */
+        /* ======================================================= */
+        .heart-container {
+            /* TIRA A ANIMAÇÃO */
+            animation: none; 
 
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: #ff1443;
-    border-radius: 50%;
-}
+            /* TAMANHO MUITO MENOR */
+            transform: scale(0.3); /* Reduz para 30% do tamanho original */
+            
+            /* POSICIONAMENTO NO CANTO INFERIOR DIREITO */
+            position: fixed; /* Fixa na tela, independente da rolagem */
+            bottom: 20px;    /* 20px de distância da parte de baixo */
+            right: 20px;     /* 20px de distância da direita */
+            
+            /* Garante centralização interna */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Garante que fique acima de outros elementos se necessário */
+            z-index: 1000;
+        }
 
-.heart::before { top: -50px; left: 0; }
-.heart::after { top: 0; left: 50px; }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff1443;
+            transform: rotate(-45deg);
+            /* Brilho mais sutil */
+            box-shadow: 0 0 20px #ff1443;
+        }
 
-.heart-text {
-    color: #ffffff; 
-    font-size: 2rem;
-    font-style: italic;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    font-family: 'Georgia', serif;
-    margin-top: 40px;
-}
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff1443;
+            border-radius: 50%;
+        }
 
-@keyframes beat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    40% { transform: scale(1); }
-    55% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
+        .heart::before { top: -50px; left: 0; }
+        .heart::after { top: 0; left: 50px; }
+
+        /* Estilo para a frase "Te adoro mulher!" (Se você ainda não tiver) */
+        .phrase {
+            color: #d17a4c; /* Cor aproximada da imagem 251a4a6f-705d-420e-aa65-8bbcc358cc36 */
+            font-size: 2.5rem;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            margin-top: 50px; /* Espaço do topo */
+        }
+
+        /* TIRA O TEXTO "I LOVE YOU" (Pois já tem a frase na imagem) */
+        .heart-text {
+            display: none;
+        }
+        /* ======================================================= */
 
 </style>
 </head>
