@@ -95,19 +95,26 @@
   button {
     width: 100%;
     padding: 14px;
-    border: none;
+    border: 2px solid #bf80ff;
     border-radius: 50px;
-    background: linear-gradient(135deg, #f5d76e, #f5a623);
-    color: white;
+    background: transparent;
+    color: #bf80ff;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
     transition: transform .15s, box-shadow .15s;
-    box-shadow: 0 4px 16px #f5a62340;
+    box-shadow: 0 0 5px #bf80ff, 0 0 25px #9b4dff;
   }
 
-  button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px #f5a62355; }
+  button:hover { transform: translateY(-2px); 
+                box-shadow: 0 0 5px #bf80ff,
+                0 0 25px #9b4dff, 
+                0 0 60px #7b00ff,
+                0 0 120px #6600cc,
+                0 0 200px #4400aa;
+               }
+  
   button:active { transform: translateY(0); }
 
   .error {
