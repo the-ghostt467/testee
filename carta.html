@@ -15,6 +15,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+        }
         
         .heart { 
             width: 80px;
@@ -27,7 +28,7 @@
         }
             .heart::before,
             .heart::after {
-                content: ´´;
+                content: '';
                 width: 80px;
                 height: 80px;
                 background: #ff2d55;
@@ -39,9 +40,12 @@
             .heart::after  { left: 40px; top: 0; }
 
             @keyframes pulse {
-                0%, 1$ {transform: rotate(-45deg) scale(1); }
+                0%, 100% {transform: rotate(-45deg) scale(1); }
                 50%       {transform: rotate(-45deg) scale(1.15); }
-        }
+        h2 {
+                color: #bf80ff;
+            }
+            }
     </style>
 </head>
 <body>
