@@ -49,7 +49,7 @@
         .radio {
             position: fixed;
             bottom: 20px;
-            left: 20px
+            left: 20px;
             background: #111;
             border: 2px solid #bf80ff;
             border-radius: 12px;
@@ -73,10 +73,10 @@
             border: 1px solid #bf80ff;
             color: #bf80ff;
             border-radius: 6px;
-            padding: 4px 10px:
+            padding: 4px 10px;
             cursor: pointer;
             margin: 0 2px;
-            front-size: 1rem;
+            font-size: 1rem;
         }
         
     </style>
@@ -96,7 +96,7 @@
             <button onclick="togglePlay()">▶</button>
             <button onclick="nextSong()">⏭</button>
         </div>
-        <audio id=player"></audio>
+        <audio id="player"></audio>
     </div>
     <script>
   const songs = [
@@ -120,7 +120,8 @@
       player.pause();
       playing = false;
     } else {
-      loadSong(current);
+      if (!player.src || player.src === "") {
+        loadSong(currente);
       player.play();
       playing = true;
     }
