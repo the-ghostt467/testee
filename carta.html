@@ -8,19 +8,45 @@
     <style>
         /* O seu CSS (estilo visual) vai aqui dentro */
         body {
-            background-color: blue; /* Cor de fundo azul claro */
+            background-color: #0a0e1a; /* Cor de fundo  */
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+        
+        .heart { 
+            width: 80px;
+            height:80px;
+            background: #ff2d55;
+            position: relative;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 30px #ff2d55, 0 0 80px #ff2d55;
+            animation: pulse 1s ease-in-out infinite;
+        }
+            .heart::before,
+            .heart::after {
+                content: ´´;
+                width: 80px;
+                height: 80px;
+                background: #ff2d55;
+                border-radius: 50%
+                position: absolute;
+            }
+
+            .heart::before { top: -40px; left: 0; }
+            .heart::after  { left: 40px: top: 0; }
+
+            @keyframes pulse {
+                0%, 1$ {transform: rotate(-45deg) scale(1); }
+                50%       {transform: rotate(-45deg) scale(1.15); }
         }
     </style>
 </head>
 <body>
-
-    <h2> color: blue; Bem-vinda. Você é a estrela mais linda do meu universo!</h2>
+<div class="heart"></div>
+    <h2>Bem-vinda. Você é a estrela mais linda do meu universo!</h2>
     <p>Your voice
         is my
         favorite soud.</p>
