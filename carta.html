@@ -46,6 +46,39 @@
          h2 {color: #bf80ff;
             margin-top: 40px; }
         p {color: #ffffff;}
+        .radio {
+            position: fixed;
+            bottom: 20px;
+            left: 20px
+            background: #111;
+            border: 2px solid #bf80ff;
+            border-radius: 12px;
+            padding: 10px 16px;
+            box-shadow: 0 0 15px #bf80ff;
+        }
+
+        .radio-display { 
+            background: #000;
+            color: #bf80ff;
+            font-family: monospace;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .radio-controls button {
+            background: transparent;
+            border: 1px solid #bf80ff;
+            color: #bf80ff;
+            border-radius: 6px;
+            padding: 4px 10px:
+            cursor: pointer;
+            margin: 0 2px;
+            front-size: 1rem;
+        }
+        
     </style>
 </head>
 <body>
@@ -54,6 +87,57 @@
     <p>Your voice
         is my
         favorite soud.</p>
+    <div class="radio">
+        <div class="radio-display">
+            <span id="song-name">I LOVE YOU</span>
+        </div>
+        <div class="radio-controls">
+            <button onclick="prevSong()">⏮</button>
+            <button onclick="togglePlay()">▶</button>
+            <button onclick="nextSong()">⏭</button>
+        </div>
+        <audio id=player"></audio>
+    </div>
+    <script>
+  const songs = [
+    { name: "CREEPIN", file: "Creepin.mp3" },
+    { name: "ONE OF THE GIRLS", file: "OneOf-The-Girls.mp3" },
+    { name: "CALL OUT MY NAME", file: "Call-Out-My-Name.mp3" }
+  ];
+
+  let current = 0;
+  let playing = false;
+  const player = document.getElementById('player');
+  const songName = document.getElementById('song-name');
+
+  function loadSong(i) {
+    player.src = songs[i].file;
+    songName.textContent = songs[i].name;
+  }
+
+  function togglePlay() {
+    if (playing) {
+      player.pause();
+      playing = false;
+    } else {
+      loadSong(current);
+      player.play();
+      playing = true;
+    }
+  }
+
+  function nextSong() {
+    current = (current + 1) % songs.length;
+    loadSong(current);
+    if (playing) player.play();
+  }
+
+  function prevSong() {
+    current = (current - 1 + songs.length) % songs.length;
+    loadSong(current);
+    if (playing) player.play();
+  }
+</script>
 
 </body>
 </html>
