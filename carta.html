@@ -98,9 +98,9 @@
         </div>
         <audio id="player"></audio>
     </div>
-    <script>
+  <script>
   const songs = [
-    { name: "TESTE INTERNET", file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+    { name: "CREEPIN", file: "Creepin.mp3" },
     { name: "ONE OF THE GIRLS", file: "OneOf-The-Girls.mp3" },
     { name: "CALL OUT MY NAME", file: "Call-Out-My-Name.mp3" }
   ];
@@ -120,8 +120,9 @@
       player.pause();
       playing = false;
     } else {
-      if (!player.src || player.src === "") {
-        loadSong(currente);
+      if (!player.src || player.src === "") { 
+        loadSong(current);
+      }
       player.play();
       playing = true;
     }
@@ -139,7 +140,6 @@
     if (playing) player.play();
   }
 </script>
-
 </body>
 </html>
 
